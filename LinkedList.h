@@ -15,6 +15,10 @@ public:
     // Байгуулагч: хоосон жагсаалт үүсгэнэ
     LinkedList() : head(nullptr), size(0) {}
 
+    // Node-ууд динамикаар үүсдэг тул санамсаргүй copy хийхийг хориглоно
+    LinkedList(const LinkedList&) = delete;
+    LinkedList& operator=(const LinkedList&) = delete;
+
     // Сүүлд элемент нэмнэ
     void add(T t) {
         Node<T>* newNode = new Node<T>(t);
@@ -50,7 +54,7 @@ public:
     }
 
     // index дүгээр элементийг буцаана
-    T get(int index) {
+    T get(int index) const {
         if (index < 0 || index >= size) {
             cout << "Invalid index!" << endl;
             return T();
@@ -83,7 +87,7 @@ public:
     }
 
     // Жагсаалтын уртыг буцаана
-    int length() {
+    int length() const {
         return size;
     }
 
@@ -108,7 +112,7 @@ public:
     }
 
     // Бүх элементийг хэвлэнэ
-    void printAll() {
+    void printAll() const {
         Node<T>* curr = head;
         int i = 0;
         while (curr != nullptr) {

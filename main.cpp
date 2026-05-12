@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 #include "Circle.h"
 #include "Square.h"
 #include "Triangle.h"
@@ -46,6 +47,7 @@ int main() {
 
     // deleteAt туршина
     cout << "\n--- deleteAt(0) ---" << endl;
+    delete list.get(0);
     list.deleteAt(0);
     list.get(0)->print();
     cout << endl;
